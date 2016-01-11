@@ -6,7 +6,6 @@ EXPOSE 8140 8081
 
 RUN apt-get update
 RUN apt-get install -y apt-utils 
-RUN apt-get install -y  bash-completion git vim
 RUN apt-get install -y wget openssh-server bash-completion git vim
 RUN cd /tmp && wget https://apt.puppetlabs.com/puppetlabs-release-pc1-jessie.deb && dpkg -i puppetlabs-release-pc1-jessie.deb
 RUN apt-get update
