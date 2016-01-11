@@ -11,4 +11,5 @@ RUN cd /tmp && wget https://apt.puppetlabs.com/puppetlabs-release-pc1-jessie.deb
 RUN apt-get update
 RUN apt-get install -y puppetserver
 RUN echo "EDITOR=vim" > /root/.bashrc; echo "PATH=\"/opt/puppetlabs/bin/:$PATH\"" >> /root/.bashrc; echo "# export LANG=de_DE@euro" >> /root/.bashrc; echo "umask 022" >> /root/.bashrc; echo "alias ll='ls -lah --color=auto'" >> /root/.bashrc; echo "alias grep='grep --color=auto'" >> /root/.bashrc; echo "alias rm='rm -r'" >> /root/.bashrc; echo "PS1='\[\033[01;31m\]\u\[\033[01;34m\]@\[\033[01;32m\]\h\[\033[01;34m\]:[\W] \$\[\033[00m\] '" >> /root/.bashrc; echo ". /etc/bash_completion" >> /root/.bashrc
-RUN cd /etc/puppetlabs/code/environments/production && rm -rf hieradata manifests modules && mv environment.conf /tmp/ && git clone https://github.com/SimonHoenscheid/puppet4-workshop.git . && mv /tmp/environment.conf . && git pull && git status
+RUN cd /etc/puppetlabs/code/environments/production && rm -rf *
+RUN service puppetserver start
